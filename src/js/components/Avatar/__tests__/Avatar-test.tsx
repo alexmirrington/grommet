@@ -3,7 +3,6 @@ import { cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
-import { Favorite } from 'grommet-icons';
 import { Box } from '../../Box';
 import { Grommet } from '../../Grommet';
 import { Stack } from '../../Stack';
@@ -19,7 +18,7 @@ describe('Avatar', () => {
     const component = renderer.create(
       <Grommet>
         <Avatar />
-        <Avatar id="test id" name="test name" />
+        <Avatar id="test id" />
       </Grommet>,
     );
     const tree = component.toJSON();
@@ -81,16 +80,6 @@ describe('Avatar', () => {
             SY
           </Text>
         </Avatar>
-      </Grommet>,
-    );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('icon renders', () => {
-    const component = renderer.create(
-      <Grommet>
-        <Avatar src={<Favorite color="accent-2" />} background="accent-4" />
       </Grommet>,
     );
     const tree = component.toJSON();
